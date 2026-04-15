@@ -332,5 +332,19 @@
                 "estoque": 12
             }
         ]
+    },
+    {
+        "id": 31,
+        "titulo": "CATÁLOGO | SPOTIFY PREMIUM ",
+        "descricao": "🔒SPOTIFY PREMIUM ( MENSAL ) | NO MEU E-MAIL",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/pj8k3Pw3/IMG-7455.png",
+        "variacoes": [
+            {
+                "nome": "🔒SPOTIFY PREMIUM ( MENSAL ) | NO MEU E-MAIL",
+                "preco": 9.9,
+                "estoque": 3
+            }
+        ]
     }
 ]
