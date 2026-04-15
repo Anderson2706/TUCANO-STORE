@@ -151,5 +151,29 @@
                 "estoque": 12
             }
         ]
+    },
+    {
+        "id": 13,
+        "titulo": "CATÁLOGO | GLOBO PLAY | CONTA ",
+        "descricao": "🎬 GLOBOPLAY PREMIUM | CONTA COMPLETA | FULL ACESSO | ACESSO IMEDIATO\n\n✅ 30 DIAS DE ENTRETENIMENTO COMPLETO\nTenha acesso total ao Globoplay com novelas, séries, filmes, programas exclusivos da Globo, canais ao vivo , com excelente qualidade e variedade de conteúdo.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nApós a confirmação da compra, você recebe e-mail e senha para acesso imediato. Simples, rápido e sem espera.\n\n🛠️ SUPORTE ESPECIALIZADO DURANTE TODO O PERÍODO\nAtendimento disponível durante os 30 dias para auxiliar em qualquer dúvida ou eventual problema de acesso.\n\n📌 CONTA COMPLETA – FULL ACESSO (TELA PRIVADA)\nConta individual, não compartilhada, garantindo mais estabilidade, melhor desempenho e maior segurança.\n⚠️ Quedas são raras, mas podem ocorrer em situações específicas do serviço.\n\n⚠️ POLÍTICA DE USO\nNão realizamos reembolsos. Compre com consciência e utilize de forma responsável para melhor experiência.\n\n💻 O MELHOR DO CONTEÚDO NACIONAL E ESPORTIVO\nDo Jornal Nacional ao Big Brother Brasil, do futebol ao The Voice — tudo em um só lugar, acessível de onde você estiver.\n\n \n\nEntrega imediata\n\nReceba o seu pacote imediatamente após o pagamento.\n\nSegurança total\n\nSeus dados são criptografados de ponta-à-ponta durante todo o processo.\n\nFormas de pagamento\n\nAceitamos os meios de pagamentos mais populares!\n\n\n\nFAÇA SEU FEEDBACK\nProdutos similares",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/Ps9yQnk7/IMG-7434.png",
+        "variacoes": [
+            {
+                "nome": "⭐GLOBOPLAY BÁSICA ( CONTA )",
+                "preco": 13.99,
+                "estoque": 5
+            },
+            {
+                "nome": "⭐GLOBOPLAY PREMIUM | 2 MÊSES – CONTA COMPLETA | FULL ACESSO | ACESSO IMEDIATO",
+                "preco": 20.99,
+                "estoque": 5
+            },
+            {
+                "nome": "GLOBOPLAY PREMIUM | CONTA COMPLETA ",
+                "preco": 13.99,
+                "estoque": 5
+            }
+        ]
     }
 ]
