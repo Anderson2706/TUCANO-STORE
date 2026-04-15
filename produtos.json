@@ -237,5 +237,24 @@
                 "estoque": 12
             }
         ]
+    },
+    {
+        "id": 17,
+        "titulo": "🍿 CATÁLOGO | PARAMOUNT+ ",
+        "descricao": "🎬 PARAMOUNT  – ACESSO IMEDIATO E GARANTIDO!\n\n \n\n✅ 30 DIAS DE DIVERSÃO GARANTIDA\n\nCurta o melhor do entretenimento com acesso padrão à Paramount! Qualidade de imagem impressionante para você maratonar suas séries e filmes favoritos com máxima definição. \n\n \n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\n\nReceba seus dados de acesso (e-mail/senha) de forma automática assim que a compra for confirmada. Simples, rápido e seguro!\n\n \n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\n\nTem alguma dúvida ou problema? Nosso suporte está disponível para garantir sua experiência sem complicações.\n\n \n\n📌 Telas Privadas – Uso Individual\n\nAcesso exclusivo e privado! Interrupções são extremamente raras, mas podem ocorrer em situações específicas.\n\n \n\n⚠️ POLÍTICA DE COMPRA\n\nSem reembolsos – adquira com consciência e aproveite ao máximo cada segundo!\n\n \n\n💻 O MELHOR DO CATÁLOGO MUNDIAL\n\nFilmes, séries, Jogos De Futebol, documentários e lançamentos direto no seu dispositivo favorito – quando e onde quiser.",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/WNK64XGn/IMG-7441.png",
+        "variacoes": [
+            {
+                "nome": "PARAMOUNT PREMIUM | PRIVADA",
+                "preco": 8.99,
+                "estoque": 34
+            },
+            {
+                "nome": "PARAMOUNT 2 MÊSES | PRIVADA",
+                "preco": 15.39,
+                "estoque": 13
+            }
+        ]
     }
 ]
