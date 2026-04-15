@@ -123,5 +123,19 @@
                 "estoque": 30
             }
         ]
+    },
+    {
+        "id": 9,
+        "titulo": "CATÁLOGO | ASSINATURA NORD VPN",
+        "descricao": "✅ - ASSINATURA NORD VPN MENSAL\n\n✅ - GARANTIA DE 30 DIAS\n\n✅ - O MELHOR PREÇO DA PLATAFORMA!\n\n✅ - NÃO RENOVAMOS A CONTA, APENAS LIBERAMOS OUTRA\n\n✅ - CONTA NORD VPN PREMIUM, APROVEITE E NAVEGUE DE FORMA SEGURA SEM SE PREOCUPAR COM INVASÕES\n\n✅ - VOCÊ TERA ACESSO A UMA CONTA PREMIUM NORD VPN PARA USAR EM QUALQUER PAIS DA SUA ESCOLHA",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/9H5BrJR7/IMG-7432.png",
+        "variacoes": [
+            {
+                "nome": "💻NORD VPN PREMIUM MENSAL",
+                "preco": 3.99,
+                "estoque": 4
+            }
+        ]
     }
 ]
