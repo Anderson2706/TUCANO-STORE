@@ -304,5 +304,19 @@
                 "estoque": 4
             }
         ]
+    },
+    {
+        "id": 26,
+        "titulo": "CATÁLOGO  | 🦉DUOLINGO ",
+        "descricao": "🎓 DUOLINGO PREMIUM – ACESSO IMEDIATO E GARANTIDO!\n\n✅ 30 DIAS DE GARANTIA\n\nAprenda um novo idioma de forma rápida, divertida e eficiente com o Duolingo Premium. Estude sem anúncios, com recursos avançados e total foco no seu aprendizado.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nApós a confirmação da compra, você recebe um LINK DE CONVITE diretamente no seu e-mail, garantindo acesso privado à plataforma. Simples, rápido e seguro!\n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nNossa equipe está disponível para te auxiliar sempre que precisar.\n\n📌 ACESSO PRIVADO – USO INDIVIDUAL\nConvite exclusivo para uso pessoal. Interrupções são raras, mas podem ocorrer em situações específicas.\n\n⚠️ POLÍTICA DE COMPRA\nNão realizamos reembolsos. Adquira com consciência e aproveite todos os benefícios.\n\n🌍 APRENDA QUANDO E ONDE QUISER\nDiversos idiomas disponíveis, acesso via celular, tablet ou computador.\n\n🦉 COMECE A APRENDER HOJE MESMO!",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/N6qFgY84/IMG-7445.png",
+        "variacoes": [
+            {
+                "nome": "🦉DUOLINGO | NO SEU E-MAIL",
+                "preco": 7.2,
+                "estoque": 3
+            }
+        ]
     }
 ]
