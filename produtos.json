@@ -1,47 +1,42 @@
 [
     {
         "id": 1,
-        "titulo": "🍿CATÁLOGO | HBO MAX PREMIUM ",
-        "descricao": "🎬 HBOMAX STANDARD – ACESSO IMEDIATO E GARANTIDO!\n\n✅ 30 DIAS DE DIVERSÃO GARANTIDA\nCurta o melhor do entretenimento com acesso premium à Hbo Max Standard! Qualidade de imagem impressionante para você maratonar suas séries e filmes favoritos com máxima definição.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) de forma automática assim que a compra for confirmada.\n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nTem alguma dúvida ou problema? Nosso suporte está disponível.\n\n📌 Telas Privadas – Uso Individual\nAcesso exclusivo e privado!\n\n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência.\n\n💻 O MELHOR DO CATÁLOGO MUNDIAL\nFilmes, séries e lançamentos direto no seu dispositivo favorito.",
+        "titulo": "HBO MAX PREMIUM",
         "categoria": "STREAMING E ASSINATURAS PREMIUM",
-        "imagem": "https://i.ibb.co/Jw5XtwqM/IMG-7429.png",
+        "descricao": "🎬 HBOMAX STANDARD – ACESSO IMEDIATO E GARANTIDO!\n\n✅ 30 DIAS DE DIVERSÃO GARANTIDA\nCurta o melhor do entretenimento com acesso premium à Hbo Max Standard! Qualidade de imagem impressionante para você maratonar suas séries e filmes favoritos com máxima definição.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) de forma automática assim que a compra for confirmada.\n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nTem alguma dúvida ou problema? Nosso suporte está disponível.\n\n📌 Telas Privadas – Uso Individual\nAcesso exclusivo e privado!\n\n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência.\n\n💻 O MELHOR DO CATÁLOGO MUNDIAL\nFilmes, séries e lançamentos direto no seu dispositivo favorito.",
+        "imagem": "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop",
+        "cupom": {
+            "codigo": "TUCANO10",
+            "desconto": 10
+        },
         "variacoes": [
             {
-                "nome": "🔒HBOMAX | PLATINUM PRIVADA",
-                "preco": 10.99,
-                "estoque": 4
+                "nome": "Plano Mensal UHD",
+                "preco": 14.9,
+                "estoque": 45
             },
             {
-                "nome": "🔒HBOMAX STANDARD | PRIVADA",
-                "preco": 6.5,
+                "nome": "Plano Anual UHD",
+                "preco": 89.9,
                 "estoque": 12
-            },
-            {
-                "nome": "🛍️HBO MAX - COMPARTILHADA",
-                "preco": 4.25,
-                "estoque": 9
             }
         ]
     },
     {
         "id": 2,
-        "titulo": "NETFLIX 4K HDR",
+        "titulo": "🍿 CATÁLOGO | NETFLIX 4K",
+        "descricao": "📌 TELA COMPARTILHADA – PODE CONTER QUEDAS OU INTERRUPÇÕES!\nO acesso compartilhado permite assistir em até 4 dispositivos simultâneos, com possíveis quedas ocasionais. Mesmo assim, a qualidade de imagem continua impecável!\n\n💰 SEM REEMBOLSO – APROVEITE AO MÁXIMO SEU ACESSO!\nAo adquirir seu plano, você concorda com nossa política de não reembolso. Aproveite cada segundo dos seus 30 dias de acesso ao catálogo completo da Netflix 4K!\n\n🎬 NETFLIX 4K PREMIUM – ACESSO IMEDIATO E GARANTIDO!✅ 30 DIAS DE GARANTIDA\nCurta o melhor do entretenimento com acesso premium à Netflix em 4K Ultra HD! Qualidade de imagem impressionante para você maratonar suas séries e filmes favoritos com máxima definição.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) de forma automática assim que a compra for confirmada. Simples, rápido e seguro!\n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nTem alguma dúvida ou problema? Nosso suporte está disponível para garantir sua experiência sem complicações.\n\n📌 Telas Privadas – Uso Individual\nAcesso exclusivo e privado! Interrupções são extremamente raras, mas podem ocorrer em situações específicas.\n\n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência e aproveite ao máximo cada segundo!\n\n💻 O MELHOR DO CATÁLOGO MUNDIAL\nFilmes, séries, documentários e lançamentos direto no seu dispositivo favorito – quando e onde quiser.",
         "categoria": "STREAMING E ASSINATURAS PREMIUM",
-        "descricao": "Assista em Ultra HD nas melhores telas. Conta privada ou perfil compartilhado.",
-        "imagem": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=2069&auto=format&fit=crop",
-        "cupom": {
-            "codigo": "NETFLIX5",
-            "desconto": 5
-        },
+        "imagem": "https://imageshttps://i.ibb.co/j9LxfdC9/IMG-7428.png.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=2069&auto=format&fit=crop",
         "variacoes": [
             {
-                "nome": "Tela Única 4K",
+                "nome": "🔒NETFLIX 4K | PRIVADA",
                 "preco": 19.9,
                 "estoque": 20
             },
             {
-                "nome": "Conta Completa",
-                "preco": 55.9,
+                "nome": "🍿NETFLIX 4K | COMPARTILHADA",
+                "preco": 12.9,
                 "estoque": 8
             }
         ]
