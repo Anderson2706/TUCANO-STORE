@@ -104,5 +104,24 @@
                 "estoque": 3
             }
         ]
+    },
+    {
+        "id": 8,
+        "titulo": "🖌️CATÁLOGO | MEGA PACK DESIGNER ",
+        "descricao": "✅ ENTREGA IMEDIATA  \n\n✅ ARQUIVO VEM EM ZIP  \n\n✅ 100 IMAGEMS DE STREAMINGS, APENAS COLOCAR O PREÇO :)  \n\n✅ IMAGEMS COM ALTA QUALIDADE  \n\n📌 O PREÇO MAIS BARATO DESSE PACK TEM PESSOAS VENDENDO A R$40, VC PODERA REVENDER TBM APOS ADQUIRIR",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/21ZX440y/IMG-7431.png",
+        "variacoes": [
+            {
+                "nome": "🖥️ PACK COM +100 BANNERS STREAMING",
+                "preco": 7.99,
+                "estoque": 30
+            },
+            {
+                "nome": "MEGA PACK DESIGNER 15GB DE IMAGENS",
+                "preco": 5.69,
+                "estoque": 30
+            }
+        ]
     }
 ]
