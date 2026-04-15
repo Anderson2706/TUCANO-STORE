@@ -223,5 +223,19 @@
                 "estoque": 3
             }
         ]
+    },
+    {
+        "id": 16,
+        "titulo": "🖌️CATÁLOGO| CANVA PRO ",
+        "descricao": "💠 | ASSINATURA COMPARTILHADA, NÃO INTERFERE EM NADA\n✔️ | ASSINATURA PREMIUM\n✔️ | FAÇA DESIGNES COM A MELHOR QUALIDADE E TODOS OS RECURSOS DO CANVA PRO\n✔️ | FUNCIONA EM TODOS DISPOSITIVOS\n✔️ | ENTREGA IMEDIATA\n✔️ | 30 DIAS DE GARANTIA",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/xSbxnxFR/IMG-7439.png",
+        "variacoes": [
+            {
+                "nome": "⭐CANVA PRO ( 1 MÊS )",
+                "preco": 2.5,
+                "estoque": 12
+            }
+        ]
     }
 ]
