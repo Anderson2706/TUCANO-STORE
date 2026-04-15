@@ -290,5 +290,19 @@
                 "estoque": 34
             }
         ]
+    },
+    {
+        "id": 25,
+        "titulo": "CATÁLOGO | CHAT GPT PLUS",
+        "descricao": "💼 ChatGPT Business - 30 Dias\n✅ Acesso exclusivo e dedicado para empresas e profissionais 🏢\n✅ Acesso via e-mail do cliente para uma experiência personalizada 📧\n✅ Suporte prioritário com tempo de resposta rápido ⏱️\n✅ Ferramentas avançadas para produtividade e colaboração em equipe 🚀\n✅ Ideal para empresas, desenvolvedores, profissionais de marketing e mais 🔧\n✅ Maior capacidade de mensagens e maior estabilidade 🔒\n✅ Permite integração com soluções personalizadas e APIs de alto desempenho 📊\n\n❗ Atenção: Conta exclusiva com acesso profissional, sem limites de mensagens.",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/F4zNhg69/IMG-7448.png",
+        "variacoes": [
+            {
+                "nome": "🤖CHATGPT Business | 📩〘NO SEU E-MAIL〙",
+                "preco": 15.9,
+                "estoque": 4
+            }
+        ]
     }
 ]
