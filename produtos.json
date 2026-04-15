@@ -137,5 +137,19 @@
                 "estoque": 4
             }
         ]
+    },
+    {
+        "id": 12,
+        "titulo": "🍿CATÁLOGO | SKY+",
+        "descricao": "📺 Sky Brasil BÁSICA – ENTRETENIMENTO PARA TODA A FAMÍLIA!\n\n✅ 25 DIAS DE GARANTIA\nAproveite uma programação variada com filmes, séries, canais infantis, entretenimento e muito mais em excelente qualidade.\n\n📌 TELA COMPARTILHADA – PODE HAVER INTERRUPÇÕES\nO acesso compartilhado permite uso em diferentes dispositivos simultaneamente, podendo ocorrer instabilidades ocasionais. Ainda assim, a transmissão continua com ótima qualidade.\n\n💰 SEM REEMBOLSO – APROVEITE AO MÁXIMO SEU ACESSO\nAo adquirir o plano, você concorda com nossa política de não reembolso. Aproveite cada momento do conteúdo disponível.\n\n🤖 ENTREGA AUTOMÁTICA (E-MAIL/SENHA)\nApós a confirmação do pagamento, suas credenciais são enviadas automaticamente com total segurança. Basta acessar e começar a assistir.\n\n🎞 ACESSO AO CATÁLOGO SKY BÁSICA\nCanais de entretenimento, séries, programas variados e conteúdos para toda a família — tudo disponível para assistir quando quiser.\n\n📱 ASSISTA EM VÁRIOS DISPOSITIVOS\nCompatível com celular, Smart TV, tablet e computador.\nLeve seu entretenimento para onde quiser! 🍿📡✨\n\n ",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/KjF37F42/IMG-7433.png",
+        "variacoes": [
+            {
+                "nome": "🍿SKY BÁSICA | COMPARTILHADA",
+                "preco": 12.99,
+                "estoque": 12
+            }
+        ]
     }
 ]
