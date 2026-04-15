@@ -1,24 +1,25 @@
 [
     {
         "id": 1,
-        "titulo": "HBO MAX PREMIUM",
-        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "titulo": "🍿CATÁLOGO | HBO MAX PREMIUM ",
         "descricao": "🎬 HBOMAX STANDARD – ACESSO IMEDIATO E GARANTIDO!\n\n✅ 30 DIAS DE DIVERSÃO GARANTIDA\nCurta o melhor do entretenimento com acesso premium à Hbo Max Standard! Qualidade de imagem impressionante para você maratonar suas séries e filmes favoritos com máxima definição.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) de forma automática assim que a compra for confirmada.\n\n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nTem alguma dúvida ou problema? Nosso suporte está disponível.\n\n📌 Telas Privadas – Uso Individual\nAcesso exclusivo e privado!\n\n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência.\n\n💻 O MELHOR DO CATÁLOGO MUNDIAL\nFilmes, séries e lançamentos direto no seu dispositivo favorito.",
-        "imagem": "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2070&auto=format&fit=crop",
-        "cupom": {
-            "codigo": "TUCANO10",
-            "desconto": 10
-        },
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://ibb.co/nNzhmNB5",
         "variacoes": [
             {
-                "nome": "Plano Mensal UHD",
-                "preco": 14.9,
-                "estoque": 45
+                "nome": "🔒HBOMAX | PLATINUM PRIVADA",
+                "preco": 10.99,
+                "estoque": 4
             },
             {
-                "nome": "Plano Anual UHD",
-                "preco": 89.9,
+                "nome": "🔒HBOMAX STANDARD | PRIVADA",
+                "preco": 6.5,
                 "estoque": 12
+            },
+            {
+                "nome": "🛍️HBO MAX - COMPARTILHADA",
+                "preco": 4.25,
+                "estoque": 9
             }
         ]
     },
@@ -95,20 +96,6 @@
             {
                 "nome": "Conta Global",
                 "preco": 120,
-                "estoque": 3
-            }
-        ]
-    },
-    {
-        "id": 6,
-        "titulo": "🥊COMBATE PLAY + TELECINE – ACESSO IMEDIATO E GARANTIDO!",
-        "descricao": "🥊COMBATE PLAY + TELECINE – ACESSO IMEDIATO E GARANTIDO!\n \n✅ 10 DIAS DE GARANTIA\nAssista aos maiores eventos do mundo das artes marciais! Tenha acesso completo ao catálogo do UFC Fight Pass e acompanhe lutas, eventos ao vivo, replays, documentários e muito mais.\n \n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) imediatamente após a confirmação da compra. Simples, rápido e totalmente seguro!\n \n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nNossa equipe de suporte está sempre pronta para te ajudar em qualquer dúvida ou problema. Experiência garantida sem complicações.\n \n📌 Acesso Compartilhado – Multiusuários\nConta compartilhada com acesso exclusivo para assistir em diferentes dispositivos. Interrupções são raras, mas podem ocorrer em situações específicas.\n \n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência e aproveite cada minuto das suas lutas favoritas!\n \n💻 O MELHOR DO MMA MUNDIAL\nEventos ao vivo, cards preliminares, lutas históricas, séries originais e documentários disponíveis no seu dispositivo favorito – onde e quando quiser.\n ",
-        "categoria": "STREAMING E ASSINATURAS PREMIUM",
-        "imagem": "https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7426.PNG",
-        "variacoes": [
-            {
-                "nome": "🥊COMBATE PLAY + TELECINE | COMPARTILHADA ",
-                "preco": 3.99,
                 "estoque": 3
             }
         ]
