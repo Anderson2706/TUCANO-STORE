@@ -175,5 +175,24 @@
                 "estoque": 5
             }
         ]
+    },
+    {
+        "id": 14,
+        "titulo": "📱CATÁLOGO | INTERNET ILIMITADA",
+        "descricao": "📃 • INFORMAÇÕES\n\n \n\n✅ - INTERNET ILIMITADA SÓ TERMINA NO DIA DO PRAZO!\n\n✅ - ENTREGA DA INTERNET IMETIADA! \n\n✅ - SÓ FUCIONA PRA ANDROID!\n\n✅ - FUCIONA 100% PRA TUDO! \n\n✅ - SÓ FUCIONA EM OPERADORA TIM E VIVO TURBO! \n\n📅 - 80 DIAS DE INTERNET • R$35,98",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/vCGTy43H/IMG-7435.png",
+        "variacoes": [
+            {
+                "nome": "INTERNET ILIMITADA - 40 DIAS",
+                "preco": 23.99,
+                "estoque": 56
+            },
+            {
+                "nome": "INTERNET ILIMITADA - 80 DIAS",
+                "preco": 38.99,
+                "estoque": 55
+            }
+        ]
     }
 ]
