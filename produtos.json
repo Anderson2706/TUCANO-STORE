@@ -194,5 +194,34 @@
                 "estoque": 55
             }
         ]
+    },
+    {
+        "id": 15,
+        "titulo": "🍿CATÁLOGO | PRIME VIDEO ",
+        "descricao": "COMPARTILHADA 👇\n✅ * 30 DIAS DE ACESSO + SUPORTE GARANTIDO!\n\n📌 * TELA COMPARTILHADA CONTEM INTERRUPÇOES E QUEDAS!\n\n💰 * NAO FAZEMOS REEMBOLSO!\n\n🤖 * ENTREGA AUTOMATICA ( E-MAIL/SENHA )\n\n🎞 * ACESSO A FILMES E SERIES E JOGOS AO VIVO\n\n\nCONTA PRIVADA👇\n🎬 PRIME VIDEO + GLOBOPLAY + PREMIERE + MAX – CONTA PRIVADA COM ACESSO IMEDIATO!\n\n✅ 30 DIAS DE GARANTIA! PREMIUM SEM INTERRUPÇÕES\nTenha acesso completo ao catálogo da Amazon Prime Video com milhares de filmes, séries originais, lançamentos e produções exclusivas!\n\n\n🚀 ENTREGA AUTOMÁTICA E IMEDIATA\nReceba os dados de login (e-mail e senha) assim que o pagamento for confirmado. Rápido, prático e direto ao ponto!\n\n\n🛠️ SUPORTE ESPECIALIZADO DURANTE TODO O PERÍODO\nConte com atendimento dedicado para qualquer dúvida ou problema durante os 30 dias de uso.\n\n\n📌 TELA PRIVADA – MAIS DESEMPENHO E SEGURANÇA\nAcesso exclusivo e individual. Maior estabilidade, sem interferências de outros usuários.\n\n\n🎞️ O MELHOR DO CATÁLOGO INTERNACIONAL\nAproveite conteúdos como The Boys, Fallout, Invencível, Reacher e muito mais com qualidade máxima e sem travamentos.\n\n\n⚠️ POLÍTICA DE USO CLARA\nSem reembolsos. Leia atentamente antes de comprar e use com responsabilidade para garantir sua melhor experiência.\n\n\n💻 ACESSO MULTIPLATAFORMA\nCompatível com Smart TVs, notebooks, celulares e tablets. Assista quando e onde quiser!\n\nRESTO 👇👇👇\n🎬 PRIME VIDEO 28 ADDS – CONTA PRIVADA COM ACESSO IMEDIATO!\n\nADICIONAIS: Paramount+ - Crunchyroll Mega Fan - Adrenalina Pura - Aquário - Cindie - Box Brazil Play - CurtaOn - Combate - Diamond Films+ - MUBI - Reserva Imovision - Sony One - Premiere + Canais Globo - Apple TV - Lionsgate+ - Max - Looke - Telecine - Filmelier+\n\n\n✅ 20 DIAS DE GARANTIA! PREMIUM SEM INTERRUPÇÕES\nTenha acesso completo ao catálogo da Amazon Prime Video com milhares de filmes, séries originais, lançamentos e produções exclusivas!\n\n\n🚀 ENTREGA AUTOMÁTICA E IMEDIATA\nReceba os dados de login (e-mail e senha) assim que o pagamento for confirmado. Rápido, prático e direto ao ponto!\n\n\n🛠️ SUPORTE ESPECIALIZADO DURANTE TODO O PERÍODO\nConte com atendimento dedicado para qualquer dúvida ou problema durante os 30 dias de uso.\n\n\n📌 TELA PRIVADA – MAIS DESEMPENHO E SEGURANÇA\nAcesso exclusivo e individual. Maior estabilidade, sem interferências de outros usuários.\n\n\n🎞️ O MELHOR DO CATÁLOGO INTERNACIONAL\nAproveite conteúdos como The Boys, Fallout, Invencível, Reacher e muito mais com qualidade máxima e sem travamentos.\n\n\n⚠️ POLÍTICA DE USO CLARA\nSem reembolsos. Leia atentamente antes de comprar e use com responsabilidade para garantir sua melhor experiência.\n\n\n💻 ACESSO MULTIPLATAFORMA\nCompatível com Smart TVs, notebooks, celulares e tablets. Assista quando e onde quiser!\n",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/vCGTy43H/IMG-7435.png",
+        "variacoes": [
+            {
+                "nome": "🔒PRIME VIDEO COMPARTILHADA ",
+                "preco": 4.99,
+                "estoque": 11
+            },
+            {
+                "nome": "🔒PRIME VIDEO + GLOBOPLAY + PREMIERE + MAX   ",
+                "preco": 10.99,
+                "estoque": 0
+            },
+            {
+                "nome": "🔒PRIME VIDEO + MAX  + PREMIERE + TELECINE +  CANAIS GLOBO",
+                "preco": 12.99,
+                "estoque": 12
+            },
+            {
+                "nome": "🔒PRIME VIDEO + PARAMOUNT + CRUNCHYROLL MEGA FAN + ADRENALINA  PURA -  AQUÁRIO - BOX BRASIL PLAY - CURTAON + APPLE TV ",
+                "preco": 29.99,
+                "estoque": 3
+            }
+        ]
     }
 ]
