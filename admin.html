@@ -39,7 +39,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="md:col-span-1">
                         <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">ID (Digite para Editar)</label>
-                        <input type="number" id="prod-id" oninput="loadProductToEdit()" class="input-style" placeholder="Ex: 1">
+                        <input type="number" id="prod-id" class="input-style" placeholder="Ex: 1">
                         <span id="id-warn" class="text-[9px] font-bold text-blue-400 mt-1 hidden italic">✨ Editando produto existente</span>
                     </div>
                     <div class="md:col-span-2">
@@ -78,9 +78,7 @@
                             <i class="bi bi-plus-lg"></i> Adicionar Plano
                         </button>
                     </div>
-                    
-                    <div id="variations-container" class="space-y-3">
-                        </div>
+                    <div id="variations-container" class="space-y-3"></div>
                 </div>
 
                 <div class="flex gap-4">
@@ -112,8 +110,8 @@
 
     <script>
         let database = [];
+        let searchTimeout;
 
-        // Carrega o arquivo produtos.json automaticamente ao abrir
         async function loadDatabase() {
             try {
                 const response = await fetch('produtos.json');
@@ -125,6 +123,14 @@
                 database = [];
             }
         }
+
+        // CORREÇÃO AQUI: Adicionado debounce para esperar o usuário parar de digitar
+        document.getElementById('prod-id').addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                loadProductToEdit();
+            }, 500); // Espera 500ms após o último dígito para buscar
+        });
 
         function addVariationRow(data = {nome: '', preco: '', estoque: ''}) {
             const container = document.getElementById('variations-container');
@@ -153,7 +159,13 @@
         }
 
         function loadProductToEdit() {
-            const id = parseInt(document.getElementById('prod-id').value);
+            const idVal = document.getElementById('prod-id').value;
+            if(!idVal) {
+                document.getElementById('id-warn').classList.add('hidden');
+                return;
+            }
+
+            const id = parseInt(idVal);
             const product = database.find(p => p.id === id);
             const warn = document.getElementById('id-warn');
             const container = document.getElementById('variations-container');
@@ -169,6 +181,7 @@
                 product.variacoes.forEach(v => addVariationRow(v));
             } else {
                 warn.classList.add('hidden');
+                // Opcional: Limpar campos se não encontrar nada, mas mantemos para cadastro de novo ID
             }
         }
 
@@ -197,7 +210,6 @@
                 });
             });
 
-            // Se o ID existir, atualiza. Se não, adiciona novo.
             const index = database.findIndex(p => p.id === id);
             if (index !== -1) {
                 database[index] = newProduct;
@@ -235,7 +247,6 @@
         }
 
         window.onload = loadDatabase;
-        // Inicia com uma linha de variação vazia se for novo
         setTimeout(() => { if(document.getElementById('variations-container').children.length === 0) addVariationRow(); }, 500);
     </script>
 </body>
