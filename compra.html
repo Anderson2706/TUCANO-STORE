@@ -16,10 +16,8 @@
         .glass-card { background: rgba(255, 255, 255, 0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 32px; backdrop-filter: blur(25px); }
         .option-ios { background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.05); border-radius: 20px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .option-ios.active { border-color: var(--ios-blue); background: rgba(30, 91, 255, 0.15); box-shadow: 0 0 25px rgba(30, 91, 255, 0.2); }
-        
         .option-ios.disabled { opacity: 0.4; cursor: not-allowed; filter: grayscale(1); }
         .btn-disabled { background: #222 !important; color: #555 !important; cursor: not-allowed !important; transform: none !important; }
-
         .btn-main { background: #fff; color: #000; border-radius: 20px; font-weight: 900; transition: all 0.3s ease; }
         .btn-main:hover { transform: scale(1.02); background: #f3f3f3; }
         .btn-outline { border: 1.5px solid rgba(255,255,255,0.1); border-radius: 20px; transition: 0.3s; background: rgba(255,255,255,0.02); }
@@ -29,6 +27,7 @@
     </style>
 </head>
 <body class="pt-28 pb-20 px-4">
+
     <header class="glass-header px-8 py-4">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="location.href='index.html'">
@@ -73,27 +72,21 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
                 <div class="glass-card p-5 flex items-center gap-4 border-none bg-white/5">
-                    <div class="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-500 text-2xl">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-500 text-2xl"><i class="bi bi-lightning-charge-fill"></i></div>
                     <div>
                         <h4 class="text-[11px] font-black uppercase text-white tracking-widest">Entrega</h4>
                         <p class="text-[10px] font-bold text-gray-500 uppercase">Imediata via E-mail</p>
                     </div>
                 </div>
                 <div class="glass-card p-5 flex items-center gap-4 border-none bg-white/5">
-                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 text-2xl">
-                        <i class="bi bi-shield-lock-fill"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 text-2xl"><i class="bi bi-shield-lock-fill"></i></div>
                     <div>
                         <h4 class="text-[11px] font-black uppercase text-white tracking-widest">Segurança</h4>
                         <p class="text-[10px] font-bold text-gray-500 uppercase">Acesso Garantido</p>
                     </div>
                 </div>
                 <div class="glass-card p-5 flex items-center gap-4 border-none bg-white/5">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500 text-2xl">
-                        <i class="bi bi-qr-code"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500 text-2xl"><i class="bi bi-qr-code"></i></div>
                     <div>
                         <h4 class="text-[11px] font-black uppercase text-white tracking-widest">Pix</h4>
                         <p class="text-[10px] font-bold text-gray-500 uppercase">Aprovação Automática</p>
@@ -123,6 +116,7 @@
                 const data = await response.json();
                 const id = localStorage.getItem('id_selecionado');
                 p = data.find(x => x.id == id);
+
                 if(!p) { location.href = 'index.html'; return; }
 
                 document.getElementById('m-titulo').innerText = p.titulo;
@@ -136,7 +130,6 @@
         function render() {
             const vari = p.variacoes[sel];
             const isOutOfStock = vari.estoque <= 0;
-
             const stockLabel = document.getElementById('m-estoque-topo');
             const stockDot = document.getElementById('stock-dot');
             
@@ -193,9 +186,19 @@
         }
 
         function go(direct) {
+            // SALVA A VARIAÇÃO ESCOLHIDA PARA O PAGAMENTO.HTML
+            localStorage.setItem('variacao_selecionada', sel);
+            
             const pedido = { ...p, sel: p.variacoes[sel], qtd: 1 };
             localStorage.setItem('checkout_pedido', JSON.stringify(pedido));
-            location.href = direct ? 'pagamento.html' : 'index.html';
+
+            if(direct) {
+                location.href = 'pagamento.html';
+            } else {
+                // Lógica de carrinho (pode ser expandida)
+                alert("Produto adicionado ao carrinho!");
+                location.href = 'index.html';
+            }
         }
 
         init();
