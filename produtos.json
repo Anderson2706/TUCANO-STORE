@@ -90,5 +90,19 @@
                 "estoque": 3
             }
         ]
+    },
+    {
+        "id": 7,
+        "titulo": "🥊 CATÁLOGO | COMBATE PLAY",
+        "descricao": "🥊COMBATE PLAY + TELECINE – ACESSO IMEDIATO E GARANTIDO!\n \n✅ 10 DIAS DE GARANTIA\nAssista aos maiores eventos do mundo das artes marciais! Tenha acesso completo ao catálogo do UFC Fight Pass e acompanhe lutas, eventos ao vivo, replays, documentários e muito mais.\n \n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nReceba seus dados de acesso (e-mail/senha) imediatamente após a confirmação da compra. Simples, rápido e totalmente seguro!\n \n🛠️ SUPORTE TOTAL DURANTE O PERÍODO ATIVO\nNossa equipe de suporte está sempre pronta para te ajudar em qualquer dúvida ou problema. Experiência garantida sem complicações.\n \n📌 Acesso Compartilhado – Multiusuários\nConta compartilhada com acesso exclusivo para assistir em diferentes dispositivos. Interrupções são raras, mas podem ocorrer em situações específicas.\n \n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência e aproveite cada minuto das suas lutas favoritas!\n \n💻 O MELHOR DO MMA MUNDIAL\nEventos ao vivo, cards preliminares, lutas históricas, séries originais e documentários disponíveis no seu dispositivo favorito – onde e quando quiser.\n ",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/bRPR3pSS/IMG-7426.png",
+        "variacoes": [
+            {
+                "nome": "🥊COMBATE PLAY + TELECINE | COMPARTILHADA",
+                "preco": 6.99,
+                "estoque": 3
+            }
+        ]
     }
 ]
