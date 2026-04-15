@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tucano Store | UHD Experience</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/Gemini_Generated_Image_7ttav07ttav07tta.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --ios-blue: #1E5BFF; 
+            --bg: #000000; 
+            --royal-blue: #0047FF;
+            /* CORES DO BRASIL TURBINADAS (MAIS BRILHO) */
+            --br-verde: #00ff5d;
+            --br-amarelo: #ffea00;
+            --br-azul: #0051ff;
+        }
+
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        
+        /* Neve no Fundo */
+        #snow-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 0; opacity: 0.4; }
+        
+        /* Header Ultra Glass */
+        .glass-header { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(30px); border-bottom: 1px solid rgba(255,255,255,0.1); position: fixed; top: 0; width: 100%; z-index: 100; }
+        
+        /* Título Hero Animado */
+        .gradient-text {
+            background: linear-gradient(to right, #fff 20%, var(--ios-blue) 40%, #60A5FA 60%, #fff 80%);
+            background-size: 200% auto;
+            color: #000; background-clip: text; -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* Animação de Entrada */
+        @keyframes burstIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(40px); filter: blur(15px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+        }
+        .product-burst { animation: burstIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
+        
+        /* Categorias */
+        .category-title {
+            position: relative; display: inline-block; padding: 12px 28px;
+            background: linear-gradient(90deg, rgba(30, 91, 255, 0.2) 0%, rgba(0,0,0,0) 100%);
+            border-left: 5px solid var(--ios-blue); border-radius: 6px 30px 30px 6px;
+            font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; font-size: 13px;
+        }
+
+        /* ✨ EFEITO BORDA BRASIL GLOW EXPOSTO (ULTRA BRILHO) ✨ */
+        .glass-card { 
+            background: #080808; 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+            border-radius: 24px; 
+            position: relative; 
+            z-index: 1;
+            /* Aumentei o padding da borda para o brilho "vazar" mais */
+            padding: 3px; 
+            overflow: hidden;
+        }
+
+        /* Camada do Brilho que gira */
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: conic-gradient(
+                transparent, 
+                var(--br-verde), 
+                var(--br-amarelo), 
+                var(--br-azul), 
+                var(--br-verde), 
+                transparent 70%
+            );
+            animation: rotateBr 3s linear infinite;
+        }
+
+        /* Glow Externo (A aura que você vê por fora da imagem) */
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            background: #080808;
+            border-radius: 21px;
+            z-index: -1;
+        }
+
+        /* Efeito de Neon extra no hover */
+        .glass-card:hover { 
+            transform: translateY(-12px) scale(1.03); 
+            box-shadow: 0 0 30px rgba(0, 255, 93, 0.3), 0 0 60px rgba(255, 234, 0, 0.1); 
+        }
+
+        @keyframes rotateBr {
+            100% { transform: rotate(1turn); }
+        }
+
+        /* Estilo da Imagem interna para não cobrir o brilho */
+        .card-img-container {
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Outros Componentes */
+        .search-ios { background: rgba(255,255,255,0.06); border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .search-ios:focus-within { border-color: var(--ios-blue); background: rgba(255,255,255,0.1); }
+        
+        .out-of-stock { filter: grayscale(1) brightness(0.5); }
+        .out-of-stock::before { display: none; } /* Remove brilho se estiver sem estoque */
+
+        .sold-out-badge {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9); border: 1px solid #ff0000;
+            color: white; padding: 10px 20px; border-radius: 12px; font-weight: 900; z-index: 20;
+        }
+
+        .google-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 14px; color: white; border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        #help-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); align-items: center; justify-content: center; }
+        .verified-badge { color: #1d9bf0; font-size: 18px; margin-left: 6px; }
+        
+        main, footer, .hero-section { position: relative; z-index: 1; }
+    </style>
+</head>
+
+<body class="pt-24">
+    <canvas id="snow-canvas"></canvas>
+
+    <header class="glass-header px-4 md:px-10 py-5">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-6">
+            
+            <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="window.location.reload()">
+                <div class="relative">
+                    <img src="https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7387.PNG" class="w-12 h-12 rounded-xl shadow-2xl">
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-black rounded-full"></div>
+                </div>
+                <div class="flex items-center">
+                    <span class="hidden lg:block font-black text-2xl tracking-tighter uppercase italic">TUCANO STORE</span>
+                    <i class="bi bi-patch-check-fill verified-badge"></i>
+                </div>
+            </div>
+
+            <div class="flex-1 max-w-xl">
+                <div class="search-ios w-full flex items-center gap-4 px-5 py-3">
+                    <i class="bi bi-search text-blue-500"></i>
+                    <input type="text" id="searchInput" oninput="searchFilter()" placeholder="Pesquisar streaming ou gift card..." class="bg-transparent outline-none text-sm w-full text-white placeholder:text-gray-500">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <button onclick="toggleHelp()" class="hidden sm:flex w-11 h-11 rounded-full bg-white/5 border border-white/10 items-center justify-center hover:bg-blue-600 transition-all">
+                    <i class="bi bi-headset text-lg"></i>
+                </button>
+                
+                <button onclick="goLastProduct()" class="relative w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-all">
+                    <i class="bi bi-cart3 text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-black">0</span>
+                </button>
+
+                <div class="google-avatar" id="google-pfp">TS</div>
+            </div>
+        </div>
+    </header>
+
+    <div id="help-modal" onclick="toggleHelp()">
+        <div class="bg-[#0f0f0f] border border-white/10 p-12 rounded-[45px] max-w-md w-full mx-4 space-y-8" onclick="event.stopPropagation()">
+            <div class="text-center">
+                <div class="w-24 h-24 bg-blue-600/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="bi bi-shield-check text-5xl text-blue-500"></i>
+                </div>
+                <h3 class="text-3xl font-black uppercase italic tracking-tighter">Atendimento VIP</h3>
+                <p class="text-gray-400 font-medium">Fale com um de nossos especialistas.</p>
+            </div>
+
+            <div class="space-y-4">
+                <a href="https://instagram.com/tucanostore" target="_blank" class="flex items-center justify-between p-6 bg-white/5 rounded-3xl hover:bg-gradient-to-r from-purple-600 to-pink-600 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <i class="bi bi-instagram text-2xl"></i>
+                        <span class="font-bold">Instagram</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                
+                <a href="https://wa.me/55000000000" target="_blank" class="flex items-center justify-between p-6 bg-white/5 rounded-3xl hover:bg-green-600 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <i class="bi bi-whatsapp text-2xl"></i>
+                        <span class="font-bold">WhatsApp Suporte</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </div>
+            <button onclick="toggleHelp()" class="w-full py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-[0.98] transition">Fechar Janela</button>
+        </div>
+    </div>
+
+    <section class="hero-section max-w-[1400px] mx-auto px-4 pt-24 pb-20 text-center">
+        <h1 class="text-5xl md:text-8xl font-black mb-8 leading-none tracking-tighter">
+            <span class="gradient-text">QUALIDADE &</span> <br>
+            <span class="text-white">GARANTIA.</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto mb-12 font-medium">
+            Sua central definitiva de entretenimento digital. Entrega imediata e garantia total em todos os produtos.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-5">
+            <button onclick="document.getElementById('main-content').scrollIntoView({behavior:'smooth'})" class="bg-blue-600 hover:bg-blue-700 px-10 py-5 rounded-2xl flex items-center gap-3 text-sm font-black transition-all shadow-xl shadow-blue-600/20">
+                <i class="bi bi-play-fill text-xl"></i> VER CATÁLOGO
+            </button>
+            <button class="bg-white/5 hover:bg-white/10 px-10 py-5 rounded-2xl flex items-center gap-3 text-sm font-bold transition-all border border-white/10">
+                <i class="bi bi-people-fill"></i> GRUPO VIP
+            </button>
+        </div>
+        <div class="mt-20 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
+    </section>
+
+    <main id="main-content" class="max-w-[1440px] mx-auto px-6 md:px-12 pb-40 space-y-32">
+        </main>
+
+    <footer class="border-t border-white/5 bg-[#030303] py-20 px-6">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div class="md:col-span-2">
+                <img src="https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7387.PNG" class="w-16 h-16 rounded-2xl mb-8 shadow-2xl">
+                <h3 class="font-black text-3xl uppercase italic tracking-tighter mb-4">Tucano Store</h3>
+                <p class="text-gray-500 text-base max-w-sm leading-relaxed">A maior e mais confiável loja de assinaturas do Brasil. Satisfação garantida ou seu dinheiro de volta.</p>
+            </div>
+            <div>
+                <h4 class="font-black text-xs uppercase tracking-[4px] text-blue-500 mb-8">Links Úteis</h4>
+                <ul class="space-y-4 text-sm text-gray-400 font-bold">
+                    <li><a href="#" class="hover:text-blue-500 transition">Central de Ajuda</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Termos de Uso</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black text-xs uppercase tracking-[4px] text-blue-500 mb-8">Social</h4>
+                <div class="flex gap-6 text-3xl">
+                    <i class="bi bi-instagram hover:text-pink-500 cursor-pointer transition"></i>
+                    <i class="bi bi-telegram hover:text-blue-400 cursor-pointer transition"></i>
+                    <i class="bi bi-twitter-x hover:text-white cursor-pointer transition"></i>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-24 opacity-20">
+            <p class="text-[10px] font-black uppercase tracking-[8px]">Tucano Store UHD © 2026 - Powered by Innovation</p>
+        </div>
+    </footer>
+
+    <script>
+        const categories = [
+            "STREAMING E ASSINATURAS PREMIUM",
+            "COMBOS STREAMING",
+            "CONTAS COMPLETA",
+            "IPTV",
+            "🔴🔵CATALAGO | RECARGAS",
+            "CONTAS STEAM"
+        ];
+
+        let allProducts = [];
+
+        async function load() {
+            try {
+                const r = await fetch('produtos.json');
+                allProducts = await r.json();
+                renderCatalog(allProducts);
+                updateCartBadge();
+                setGoogleAvatar("Tucano Store"); 
+            } catch (e) { 
+                console.error("Erro no carregamento!"); 
+            }
+        }
+
+        function renderCatalog(list) {
+            const main = document.getElementById('main-content');
+            main.innerHTML = '';
+
+            categories.forEach(cat => {
+                const filtered = list.filter(p => p.categoria.trim() === cat.trim());
+                if (filtered.length > 0) {
+                    const section = document.createElement('section');
+                    section.innerHTML = `
+                        <div class="flex items-center justify-between mb-12">
+                            <h2 class="category-title text-blue-400">${cat}</h2>
+                            <div class="h-[1px] flex-1 bg-white/10 ml-10 hidden md:block"></div>
+                        </div>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                            ${filtered.map((p, i) => {
+                                const isEsgotado = p.variacoes.every(v => v.estoque <= 0);
+                                return `
+                                <div onclick="${isEsgotado ? '' : `go(${p.id})`}" 
+                                     class="glass-card product-burst ${isEsgotado ? 'out-of-stock cursor-not-allowed' : 'cursor-pointer group'}" 
+                                     style="animation-delay: ${i * 0.1}s">
+                                    <div class="card-img-container aspect-video md:aspect-[4/3]">
+                                        <img src="${p.imagem}" class="w-full h-full object-cover ${isEsgotado ? '' : 'group-hover:scale-110 transition duration-700'}">
+                                        ${isEsgotado ? '<div class="sold-out-badge text-xs uppercase">Sem Estoque</div>' : ''}
+                                    </div>
+                                    <div class="p-6">
+                                        <h3 class="font-black text-xs md:text-sm uppercase tracking-tight mb-4 line-clamp-1 text-white">${p.titulo}</h3>
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex flex-col">
+                                                <span class="text-[9px] text-gray-500 uppercase font-black">Investimento</span>
+                                                <span class="text-lg md:text-2xl font-black text-blue-500 italic">R$ ${p.variacoes[0].preco.toFixed(2)}</span>
+                                            </div>
+                                            <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:rotate-[360deg] transition-all duration-500 border border-white/10">
+                                                <i class="bi bi-cart-plus text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            }).join('')}
+                        </div>`;
+                    main.appendChild(section);
+                }
+            });
+        }
+
+        function setGoogleAvatar(name) {
+            const parts = name.split(" ");
+            const initials = parts.length > 1 ? parts[0][0] + parts[1][0] : parts[0].substring(0, 2);
+            const avatar = document.getElementById('google-pfp');
+            if(avatar) avatar.innerText = initials.toUpperCase();
+        }
+
+        function searchFilter() {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allProducts.filter(p => p.titulo.toLowerCase().includes(term));
+            renderCatalog(filtered);
+        }
+
+        function go(id) { 
+            localStorage.setItem('id_selecionado', id); 
+            location.href='compra.html'; 
+        }
+
+        function toggleHelp() {
+            const modal = document.getElementById('help-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function goLastProduct() {
+            const lastId = localStorage.getItem('id_selecionado');
+            if(lastId) location.href = 'compra.html';
+            else alert("Seu carrinho está vazio!");
+        }
+
+        function updateCartBadge() {
+            const hasItem = localStorage.getItem('id_selecionado');
+            const badge = document.getElementById('cart-count');
+            if(badge) badge.innerText = hasItem ? "1" : "0";
+        }
+
+        /* ENGINE DE NEVE */
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speed = Math.random() * 0.8 + 0.3;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) this.y = -10;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+        function initSnow() {
+            for (let i = 0; i < 100; i++) particles.push(new Particle());
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('resize', resize);
+        resize(); initSnow(); animate();
+        document.addEventListener('DOMContentLoaded', load);
+    </script>
+</body>
+</html>

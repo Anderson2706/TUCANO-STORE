@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Seguro | Tucano Store</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7387.PNG">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --ios-blue: #1E5BFF; 
+            --bg: #000000; 
+            --br-verde: #00ff5d;
+            --br-amarelo: #ffea00;
+            --br-azul: #0051ff;
+        }
+
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        #snow-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 0; opacity: 0.3; }
+        .glass-header { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(30px); border-bottom: 1px solid rgba(255,255,255,0.1); position: fixed; top: 0; width: 100%; z-index: 100; }
+
+        /* ✨ EFEITO BRASIL GLOW PREMIUM ✨ */
+        .br-glow-border {
+            position: relative;
+            background: #080808;
+            border-radius: 28px;
+            padding: 3px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .br-glow-border::before {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            left: -50%; top: -50%; width: 200%; height: 200%;
+            background-image: conic-gradient(transparent, var(--br-verde), var(--br-amarelo), var(--br-azul), var(--br-verde), transparent 70%);
+            animation: rotateBr 3s linear infinite;
+        }
+
+        .br-glow-border::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            background: #0d0d0d;
+            border-radius: 25px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBr { 100% { transform: rotate(1turn); } }
+
+        .btn-pay {
+            background: linear-gradient(90deg, var(--br-verde), var(--br-azul));
+            transition: 0.4s;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(0, 255, 93, 0.2);
+        }
+        .btn-pay:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 255, 93, 0.4); }
+
+        .status-dot { animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        #payment-screen, #success-screen { display: none; }
+        main { position: relative; z-index: 1; }
+    </style>
+</head>
+
+<body class="pt-32 pb-20">
+    <canvas id="snow-canvas"></canvas>
+
+    <header class="glass-header px-6 py-5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="location.href='index.html'">
+                <img src="https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7387.PNG" class="w-10 h-10 rounded-lg">
+                <span class="font-black text-xl italic tracking-tighter">TUCANO STORE</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="bi bi-shield-lock-fill text-br-verde"></i>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Ambiente Seguro</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <div id="checkout-screen" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div class="space-y-8">
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Resumo do Pedido</h2>
+                
+                <div class="br-glow-border">
+                    <div class="p-6 flex items-center gap-6">
+                        <img id="p-img" src="" class="w-28 h-28 object-cover rounded-2xl">
+                        <div class="flex-1">
+                            <h3 id="p-title" class="font-bold text-white uppercase text-lg mb-1">Carregando...</h3>
+                            <span id="p-cat" class="text-[10px] bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full font-black uppercase">Streaming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-[32px] p-8 space-y-6">
+                    <div class="space-y-4">
+                        <label class="block text-xs font-black uppercase text-gray-500 tracking-widest">Informações de Entrega</label>
+                        <input type="email" id="customer-email" placeholder="Digite seu melhor e-mail" class="w-full bg-black/40 border border-white/10 p-5 rounded-2xl outline-none focus:border-br-verde transition">
+                        <input type="tel" id="customer-phone" placeholder="WhatsApp (DDD) 99999-9999" class="w-full bg-black/40 border border-white/10 p-5 rounded-2xl outline-none focus:border-br-verde transition">
+                    </div>
+                    
+                    <div class="p-5 bg-br-verde/5 border border-br-verde/20 rounded-2xl flex gap-4 items-center">
+                        <i class="bi bi-info-circle-fill text-br-verde text-xl"></i>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            <strong class="text-white">Atenção:</strong> O acesso ao produto será enviado automaticamente para o seu <span class="text-br-verde">E-mail</span> e <span class="text-br-verde">WhatsApp</span> após a confirmação.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">Pagamento</h2>
+                <div class="bg-[#0a0a0a] border border-white/10 rounded-[40px] p-10 space-y-8">
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between text-gray-400">
+                            <span class="font-bold">Subtotal</span>
+                            <span id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between text-br-verde font-bold">
+                            <span>Desconto Especial (PIX)</span>
+                            <span id="desconto">- R$ 0,00</span>
+                        </div>
+                        <div class="h-[1px] bg-white/10 w-full"></div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-black uppercase italic">Total a Pagar</span>
+                            <span class="text-4xl font-black text-white" id="total-final">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <button onclick="generatePix()" class="btn-pay w-full py-6 rounded-2xl flex items-center justify-center gap-3 shadow-2xl text-lg italic">
+                        <i class="bi bi-qr-code-scan"></i> GERAR PIX AGORA
+                    </button>
+
+                    <div class="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+                        <img src="https://logodownload.org/wp-content/uploads/2020/02/pix-bc-logo.png" class="h-4">
+                        <div class="w-[1px] h-4 bg-white/20"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest">Pagamento Instantâneo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="payment-screen" class="max-w-2xl mx-auto">
+            <div class="br-glow-border">
+                <div class="p-10 bg-[#0d0d0d] rounded-[25px] text-center space-y-8">
+                    <div class="space-y-2">
+                        <h2 class="text-3xl font-black italic uppercase tracking-tighter">Aguardando Pagamento</h2>
+                        <p class="text-gray-500 text-sm">Escaneie o QR Code abaixo para finalizar sua compra.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-3xl w-64 h-64 mx-auto shadow-[0_0_40px_rgba(0,255,93,0.2)]">
+                        <img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ESPERANDO_API" class="w-full h-full">
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <span class="status-dot w-3 h-3 bg-br-verde rounded-full"></span>
+                            <span class="text-sm font-bold text-gray-300">Sincronizado com o Banco. Aguardando PIX...</span>
+                        </div>
+                        
+                        <button onclick="copyPix()" class="w-full py-4 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-black uppercase tracking-[2px] transition">
+                            <i class="bi bi-copy mr-2"></i> Copiar Código Copia e Cola
+                        </button>
+                    </div>
+
+                    <p class="text-[10px] text-gray-600 uppercase font-bold">Após pagar, o sistema levará até 30 segundos para liberar seu acesso.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="success-screen" class="max-w-md mx-auto text-center space-y-10">
+            <div class="relative w-32 h-32 mx-auto">
+                <div class="absolute inset-0 bg-br-verde blur-3xl opacity-40 animate-pulse"></div>
+                <div class="relative w-32 h-32 bg-br-verde rounded-full flex items-center justify-center shadow-2xl">
+                    <i class="bi bi-check-lg text-6xl text-black"></i>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <h2 class="text-4xl font-black italic uppercase text-br-verde">Pagamento Aprovado!</h2>
+                <p class="text-gray-400 font-medium">Seu pedido foi registrado com sucesso.</p>
+                <div class="p-6 bg-white/5 rounded-3xl border border-white/10 space-y-3 text-left">
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="bi bi-envelope-at text-br-verde"></i>
+                        <span>Enviado para seu E-mail</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="bi bi-whatsapp text-br-verde"></i>
+                        <span>Enviado para seu WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="location.href='index.html'" class="w-full py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-xs">Finalizar Atendimento</button>
+        </div>
+
+    </main>
+
+    <script>
+    let currentProduct = null;
+    let pixCopiaECola = "";
+    let chargeId = ""; // Armazena o ID da cobrança para verificar o status
+    
+    // Suas credenciais
+    const APP_ID = '58f8c505-2b63-4a5b-af93-ba3af27ea297'; // Cliente ID Público
+    // Nota: O segredo fd37cdfe... deveria ser usado via Backend por segurança.
+
+    async function init() {
+        const id = localStorage.getItem('id_selecionado');
+        if(!id) { location.href = 'index.html'; return; }
+        const r = await fetch('produtos.json');
+        const data = await r.json();
+        currentProduct = data.find(p => p.id == id);
+        
+        if(currentProduct) {
+            const preco = currentProduct.variacoes[0].preco;
+            const desc = preco * 0.05; 
+            document.getElementById('p-title').innerText = currentProduct.titulo;
+            document.getElementById('p-img').src = currentProduct.imagem;
+            document.getElementById('p-cat').innerText = currentProduct.categoria;
+            document.getElementById('subtotal').innerText = `R$ ${preco.toFixed(2)}`;
+            document.getElementById('desconto').innerText = `- R$ ${desc.toFixed(2)}`;
+            document.getElementById('total-final').innerText = `R$ ${(preco - desc).toFixed(2)}`;
+        }
+    }
+
+    async function generatePix() {
+        const email = document.getElementById('customer-email').value;
+        const phone = document.getElementById('customer-phone').value;
+        const totalValue = (currentProduct.variacoes[0].preco * 0.95) * 100; // Valor em centavos para a API
+
+        if(!email.includes('@') || phone.length < 8) {
+            alert("Por favor, preencha o e-mail e WhatsApp corretamente!");
+            return;
+        }
+
+        // Mudando a interface para carregando
+        const btn = document.querySelector('.btn-pay');
+        btn.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i> GERANDO...';
+        btn.disabled = true;
+
+        try {
+            // Chamada para a API (Exemplo padrão REST para Gateways de Pix)
+            const response = await fetch('https://api.openpix.com.br/api/v1/charge', {
+                method: 'POST',
+                headers: {
+                    'Authorization': APP_ID,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    correlationID: "tucano_" + Date.now(),
+                    value: Math.round(totalValue), // Valor em centavos
+                    comment: "Compra Tucano Store - " + currentProduct.titulo,
+                    customer: {
+                        name: "Cliente Tucano",
+                        email: email,
+                        phone: phone
+                    }
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.charge) {
+                // Preenche o QR Code e o Copia e Cola com dados reais da API
+                document.getElementById('qr-code-img').src = data.charge.qrCodeImage;
+                pixCopiaECola = data.charge.brCode;
+                chargeId = data.charge.correlationID;
+
+                // Troca de tela
+                document.getElementById('checkout-screen').style.display = 'none';
+                document.getElementById('payment-screen').style.display = 'block';
+
+                // Inicia a verificação automática de pagamento
+                startPaymentCheck(data.charge.identifier);
+            } else {
+                throw new Error("Erro ao gerar cobrança");
+            }
+        } catch (error) {
+            alert("Erro na conexão com o banco. Tente novamente.");
+            btn.innerHTML = '<i class="bi bi-qr-code-scan"></i> GERAR PIX AGORA';
+            btn.disabled = false;
+        }
+    }
+
+    // Função que verifica de 5 em 5 segundos se o cliente pagou
+    function startPaymentCheck(id) {
+        const checkInterval = setInterval(async () => {
+            try {
+                const response = await fetch(`https://api.openpix.com.br/api/v1/charge/${id}`, {
+                    headers: { 'Authorization': APP_ID }
+                });
+                const data = await response.json();
+
+                if (data.charge.status === 'COMPLETED' || data.charge.status === 'PAID') {
+                    clearInterval(checkInterval);
+                    showSuccess();
+                }
+            } catch (e) {
+                console.error("Erro ao checar status");
+            }
+        }, 5000); // 5 segundos
+    }
+
+    function showSuccess() {
+        document.getElementById('payment-screen').style.display = 'none';
+        document.getElementById('success-screen').style.display = 'block';
+        localStorage.removeItem('id_selecionado');
+    }
+
+    function copyPix() {
+        navigator.clipboard.writeText(pixCopiaECola);
+        const btn = document.querySelector('#payment-screen button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check2"></i> COPIADO!';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+    }
+
+    // Código da Neve e Init permanecem iguais...
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    class Particle {
+        constructor() { this.reset(); }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speed = Math.random() * 0.4;
+            this.opacity = Math.random() * 0.2;
+        }
+        update() { this.y += this.speed; if (this.y > canvas.height) this.y = -10; }
+        draw() {
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; ctx.fill();
+        }
+    }
+    function initSnow() { for (let i = 0; i < 40; i++) particles.push(new Particle()); }
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    window.addEventListener('resize', resize);
+    resize(); initSnow(); animate();
+    init();
+</script>
+</body>
+</html>

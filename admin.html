@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin V2 | Tucano Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { background: #000; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; }
+        .br-glow { border: 2px solid transparent; background: linear-gradient(#080808, #080808) padding-box, conic-gradient(from 180deg, #00ff5d, #ffea00, #0051ff, #00ff5d) border-box; }
+        .input-style { background: #111; border: 1px solid #222; padding: 12px; border-radius: 12px; width: 100%; outline: none; transition: 0.3s; color: white; }
+        .input-style:focus { border-color: #00ff5d; box-shadow: 0 0 15px rgba(0, 255, 93, 0.2); }
+        pre { background: #050505; border: 1px dashed #333; padding: 20px; border-radius: 15px; overflow-x: auto; color: #00ff5d; font-size: 11px; max-height: 400px; }
+        .var-row { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+        <div class="lg:col-span-2 space-y-6">
+            <header class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
+                        <i class="bi bi-pencil-square text-black text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-black uppercase italic tracking-tighter">Gestor de Inventário</h1>
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[3px]">Tucano Store Cloud Sync</p>
+                    </div>
+                </div>
+                <div id="id-badge" class="px-4 py-2 bg-white/5 rounded-full border border-white/10 text-[10px] font-black uppercase">
+                    Produtos no JSON: <span id="id-count" class="text-green-400">0</span>
+                </div>
+            </header>
+
+            <div class="br-glow p-6 md:p-8 rounded-[35px] space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="md:col-span-1">
+                        <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">ID (Digite para Editar)</label>
+                        <input type="number" id="prod-id" oninput="loadProductToEdit()" class="input-style" placeholder="Ex: 1">
+                        <span id="id-warn" class="text-[9px] font-bold text-blue-400 mt-1 hidden italic">✨ Editando produto existente</span>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">Título da Oferta</label>
+                        <input type="text" id="prod-title" class="input-style" placeholder="Ex: HBO Max Ultra HD">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">Descrição Detalhada</label>
+                    <textarea id="prod-desc" class="input-style h-24 resize-none" placeholder="Descreva os benefícios, regras e suporte..."></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">Categoria</label>
+                        <select id="prod-cat" class="input-style">
+                            <option>STREAMING E ASSINATURAS PREMIUM</option>
+                            <option>COMBOS STREAMING</option>
+                            <option>CONTAS COMPLETA</option>
+                            <option>IPTV</option>
+                            <option>🔴🔵CATALAGO | RECARGAS</option>
+                            <option>CONTAS STEAM</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black uppercase text-gray-400 mb-2 block">Link da Imagem</label>
+                        <input type="text" id="prod-img" class="input-style" placeholder="https://imgur.com/...">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xs font-black uppercase tracking-widest text-yellow-400">Planos / Variações</h3>
+                        <button onclick="addVariationRow()" class="bg-blue-600 hover:bg-blue-500 text-[10px] font-black px-4 py-2 rounded-lg transition uppercase">
+                            <i class="bi bi-plus-lg"></i> Adicionar Plano
+                        </button>
+                    </div>
+                    
+                    <div id="variations-container" class="space-y-3">
+                        </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <button onclick="saveAndSync()" class="flex-1 bg-green-500 text-black font-black py-5 rounded-2xl hover:bg-white transition-all duration-500 uppercase text-xs tracking-[2px] shadow-2xl">
+                        <i class="bi bi-cloud-arrow-up-fill mr-2"></i> Salvar & Atualizar
+                    </button>
+                    <button onclick="downloadJson()" class="px-6 bg-white/10 rounded-2xl hover:bg-white/20 transition">
+                        <i class="bi bi-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <h2 class="text-xl font-black uppercase italic tracking-tighter">Base de Dados Atualizada</h2>
+            <div class="bg-[#0a0a0a] border border-white/10 p-6 rounded-[35px] space-y-4">
+                <pre id="json-output">// O arquivo produtos.json completo aparecerá aqui...</pre>
+                <button onclick="copyCode()" class="w-full py-4 bg-white/5 border border-white/10 rounded-xl font-bold text-xs uppercase hover:bg-white/10 transition">
+                    <i class="bi bi-clipboard-check mr-2"></i> Copiar Novo produtos.json
+                </button>
+                <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl">
+                    <p class="text-[10px] text-gray-400 leading-relaxed font-bold italic text-center">
+                        <i class="bi bi-info-circle text-blue-400"></i> Após salvar, copie o código e cole no seu arquivo .json para as mudanças valerem no site.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let database = [];
+
+        // Carrega o arquivo produtos.json automaticamente ao abrir
+        async function loadDatabase() {
+            try {
+                const response = await fetch('produtos.json');
+                database = await response.json();
+                updateIdBadge();
+                renderJsonOutput();
+            } catch (error) {
+                console.log("Iniciando nova base de dados.");
+                database = [];
+            }
+        }
+
+        function addVariationRow(data = {nome: '', preco: '', estoque: ''}) {
+            const container = document.getElementById('variations-container');
+            const row = document.createElement('div');
+            row.className = 'var-row p-4 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-3 items-end';
+            row.innerHTML = `
+                <div>
+                    <label class="text-[9px] uppercase text-gray-500 font-bold">Nome do Plano</label>
+                    <input type="text" class="v-name input-style !py-2 text-sm" value="${data.nome}" placeholder="Ex: Trimestral">
+                </div>
+                <div>
+                    <label class="text-[9px] uppercase text-gray-500 font-bold">Preço (R$)</label>
+                    <input type="number" step="0.01" class="v-price input-style !py-2 text-sm" value="${data.preco}" placeholder="0.00">
+                </div>
+                <div class="flex gap-2">
+                    <div class="flex-1">
+                        <label class="text-[9px] uppercase text-gray-500 font-bold">Estoque</label>
+                        <input type="number" class="v-stock input-style !py-2 text-sm" value="${data.estoque}" placeholder="0">
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-red-500/10 text-red-500 p-2 rounded-lg hover:bg-red-500 hover:text-white transition">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            `;
+            container.appendChild(row);
+        }
+
+        function loadProductToEdit() {
+            const id = parseInt(document.getElementById('prod-id').value);
+            const product = database.find(p => p.id === id);
+            const warn = document.getElementById('id-warn');
+            const container = document.getElementById('variations-container');
+            
+            if (product) {
+                warn.classList.remove('hidden');
+                document.getElementById('prod-title').value = product.titulo;
+                document.getElementById('prod-desc').value = product.descricao || "";
+                document.getElementById('prod-cat').value = product.categoria;
+                document.getElementById('prod-img').value = product.imagem;
+                
+                container.innerHTML = "";
+                product.variacoes.forEach(v => addVariationRow(v));
+            } else {
+                warn.classList.add('hidden');
+            }
+        }
+
+        function saveAndSync() {
+            const id = parseInt(document.getElementById('prod-id').value);
+            if(!id) { alert("ID é necessário!"); return; }
+
+            const newProduct = {
+                id: id,
+                titulo: document.getElementById('prod-title').value,
+                descricao: document.getElementById('prod-desc').value,
+                categoria: document.getElementById('prod-cat').value,
+                imagem: document.getElementById('prod-img').value || "https://raw.githubusercontent.com/Anderson2706/TUCANO-STORE/refs/heads/main/IMG_7387.PNG",
+                variacoes: []
+            };
+
+            const names = document.querySelectorAll('.v-name');
+            const prices = document.querySelectorAll('.v-price');
+            const stocks = document.querySelectorAll('.v-stock');
+
+            names.forEach((n, i) => {
+                newProduct.variacoes.push({
+                    nome: n.value || "Padrão",
+                    preco: parseFloat(prices[i].value) || 0,
+                    estoque: parseInt(stocks[i].value) || 0
+                });
+            });
+
+            // Se o ID existir, atualiza. Se não, adiciona novo.
+            const index = database.findIndex(p => p.id === id);
+            if (index !== -1) {
+                database[index] = newProduct;
+            } else {
+                database.push(newProduct);
+            }
+
+            updateIdBadge();
+            renderJsonOutput();
+            alert("Sincronizado na memória! Copie o código ao lado para o seu arquivo.");
+        }
+
+        function renderJsonOutput() {
+            document.getElementById('json-output').innerText = JSON.stringify(database, null, 4);
+        }
+
+        function updateIdBadge() {
+            document.getElementById('id-count').innerText = database.length;
+        }
+
+        function copyCode() {
+            const code = document.getElementById('json-output').innerText;
+            navigator.clipboard.writeText(code);
+            alert("JSON da base completa copiado!");
+        }
+
+        function downloadJson() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(database, null, 4));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "produtos.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        window.onload = loadDatabase;
+        // Inicia com uma linha de variação vazia se for novo
+        setTimeout(() => { if(document.getElementById('variations-container').children.length === 0) addVariationRow(); }, 500);
+    </script>
+</body>
+</html>
