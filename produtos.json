@@ -256,5 +256,39 @@
                 "estoque": 13
             }
         ]
+    },
+    {
+        "id": 18,
+        "titulo": "🍿 CATÁLOGO | VIVO PLAY ",
+        "descricao": "🔒 Vivo Play + Telecine – ACESSO IMEDIATO E GARANTIDO!\n\n✅ 30 DIAS DE FUTEBOL E ENTRETENIMENTO ILIMITADO\nTenha acesso completo ao Vivo Play + Telecine! Assista a jogos, filmes, séries e canais ao vivo com qualidade e variedade para todos os gostos.\n\n🚀 ENTREGA AUTOMÁTICA E INSTANTÂNEA\nSeus dados de acesso (e-mail/senha) são enviados imediatamente após a confirmação da compra. Rápido, simples e seguro!\n\n🛠️ SUPORTE DURANTE TODO O PERÍODO\nConte com suporte disponível para garantir uma experiência estável e sem complicações durante todo o acesso.\n\n📌 CONTA PRIVADA – ACESSO EXCLUSIVO\nAproveite com mais estabilidade e liberdade. Interrupções são raras, mas podem ocorrer em situações específicas.\n\n⚠️ POLÍTICA DE COMPRA\nSem reembolsos – adquira com consciência e aproveite ao máximo seu acesso.\n\n💻 ENTRETENIMENTO COMPLETO EM UM SÓ LUGAR\n🎬 Filmes e lançamentos do Telecine\n📺 Canais ao vivo e conteúdos sob demanda\n⚽ Esportes e programação variada\n\n📱 ASSISTA ONDE QUISER\nCelular, Smart TV, tablet ou computador — leve sua diversão com você! 🍿📺✨",
+        "categoria": "STREAMING E ASSINATURAS PREMIUM",
+        "imagem": "https://i.ibb.co/d488r6g7/Gemini-Generated-Image-9b5j7w9b5j7w9b5j.png",
+        "variacoes": [
+            {
+                "nome": "🔒VIVO PLAY + TELECINE | PRIVADA",
+                "preco": 7.5,
+                "estoque": 2
+            },
+            {
+                "nome": "🔒VIVO TV COMPLETO + PREMIERE | PRIVADA",
+                "preco": 11.5,
+                "estoque": 12
+            },
+            {
+                "nome": "🔒VIVO TV AVANÇADO+ PREMIERE | PRIVADA",
+                "preco": 10.99,
+                "estoque": 4
+            },
+            {
+                "nome": "🔒VIVO TV AVANÇADO | PRIVADA",
+                "preco": 7.9,
+                "estoque": 5
+            },
+            {
+                "nome": "🔒VIVO TV+ PREMIERE+ ESPN | PRIVADA",
+                "preco": 8.9,
+                "estoque": 34
+            }
+        ]
     }
 ]
