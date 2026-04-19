@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin V2 | Tucano Store</title>
+    <title>Admin V3 | Tucano Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     </style>
 </head>
 <body class="p-4 md:p-10">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
 
         <div class="lg:col-span-2 space-y-6">
             <header class="flex items-center justify-between">
@@ -78,6 +78,7 @@
                             <i class="bi bi-plus-lg"></i> Adicionar Plano
                         </button>
                     </div>
+                    
                     <div id="variations-container" class="space-y-3"></div>
                 </div>
 
@@ -101,7 +102,7 @@
                 </button>
                 <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl">
                     <p class="text-[10px] text-gray-400 leading-relaxed font-bold italic text-center">
-                        <i class="bi bi-info-circle text-blue-400"></i> Após salvar, copie o código e cole no seu arquivo .json para as mudanças valerem no site.
+                        <i class="bi bi-info-circle text-blue-400"></i> Após salvar, copie o código e cole no seu arquivo .json.
                     </p>
                 </div>
             </div>
@@ -124,31 +125,35 @@
             }
         }
 
-        // CORREÇÃO AQUI: Adicionado debounce para esperar o usuário parar de digitar
+        // Debounce para ID (correção do problema de digitar 11 e pegar o 1)
         document.getElementById('prod-id').addEventListener('input', function() {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
                 loadProductToEdit();
-            }, 500); // Espera 500ms após o último dígito para buscar
+            }, 600);
         });
 
-        function addVariationRow(data = {nome: '', preco: '', estoque: ''}) {
+        function addVariationRow(data = {nome: '', preco: '', estoque: '', link: ''}) {
             const container = document.getElementById('variations-container');
             const row = document.createElement('div');
-            row.className = 'var-row p-4 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-3 items-end';
+            row.className = 'var-row p-4 rounded-2xl grid grid-cols-1 md:grid-cols-4 gap-3 items-end';
             row.innerHTML = `
-                <div>
+                <div class="md:col-span-1">
                     <label class="text-[9px] uppercase text-gray-500 font-bold">Nome do Plano</label>
-                    <input type="text" class="v-name input-style !py-2 text-sm" value="${data.nome}" placeholder="Ex: Trimestral">
+                    <input type="text" class="v-name input-style !py-2 text-sm" value="${data.nome || ''}" placeholder="Ex: Mensal">
                 </div>
-                <div>
+                <div class="md:col-span-1">
                     <label class="text-[9px] uppercase text-gray-500 font-bold">Preço (R$)</label>
-                    <input type="number" step="0.01" class="v-price input-style !py-2 text-sm" value="${data.preco}" placeholder="0.00">
+                    <input type="number" step="0.01" class="v-price input-style !py-2 text-sm" value="${data.preco || ''}" placeholder="0.00">
+                </div>
+                <div class="md:col-span-1">
+                    <label class="text-[9px] uppercase text-gray-500 font-bold">Checkout (Link)</label>
+                    <input type="text" class="v-link input-style !py-2 text-sm" value="${data.link || ''}" placeholder="https://...">
                 </div>
                 <div class="flex gap-2">
                     <div class="flex-1">
                         <label class="text-[9px] uppercase text-gray-500 font-bold">Estoque</label>
-                        <input type="number" class="v-stock input-style !py-2 text-sm" value="${data.estoque}" placeholder="0">
+                        <input type="number" class="v-stock input-style !py-2 text-sm" value="${data.estoque || ''}" placeholder="0">
                     </div>
                     <button onclick="this.parentElement.parentElement.remove()" class="bg-red-500/10 text-red-500 p-2 rounded-lg hover:bg-red-500 hover:text-white transition">
                         <i class="bi bi-trash"></i>
@@ -164,7 +169,6 @@
                 document.getElementById('id-warn').classList.add('hidden');
                 return;
             }
-
             const id = parseInt(idVal);
             const product = database.find(p => p.id === id);
             const warn = document.getElementById('id-warn');
@@ -172,16 +176,15 @@
             
             if (product) {
                 warn.classList.remove('hidden');
-                document.getElementById('prod-title').value = product.titulo;
+                document.getElementById('prod-title').value = product.titulo || "";
                 document.getElementById('prod-desc').value = product.descricao || "";
-                document.getElementById('prod-cat').value = product.categoria;
-                document.getElementById('prod-img').value = product.imagem;
+                document.getElementById('prod-cat').value = product.categoria || "";
+                document.getElementById('prod-img').value = product.imagem || "";
                 
                 container.innerHTML = "";
-                product.variacoes.forEach(v => addVariationRow(v));
+                if(product.variacoes) product.variacoes.forEach(v => addVariationRow(v));
             } else {
                 warn.classList.add('hidden');
-                // Opcional: Limpar campos se não encontrar nada, mas mantemos para cadastro de novo ID
             }
         }
 
@@ -201,12 +204,14 @@
             const names = document.querySelectorAll('.v-name');
             const prices = document.querySelectorAll('.v-price');
             const stocks = document.querySelectorAll('.v-stock');
+            const links = document.querySelectorAll('.v-link');
 
             names.forEach((n, i) => {
                 newProduct.variacoes.push({
                     nome: n.value || "Padrão",
                     preco: parseFloat(prices[i].value) || 0,
-                    estoque: parseInt(stocks[i].value) || 0
+                    estoque: parseInt(stocks[i].value) || 0,
+                    link: links[i].value || ""
                 });
             });
 
@@ -219,7 +224,7 @@
 
             updateIdBadge();
             renderJsonOutput();
-            alert("Sincronizado na memória! Copie o código ao lado para o seu arquivo.");
+            alert("Sincronizado! Lembre de copiar o código e atualizar seu arquivo .json");
         }
 
         function renderJsonOutput() {
@@ -233,7 +238,7 @@
         function copyCode() {
             const code = document.getElementById('json-output').innerText;
             navigator.clipboard.writeText(code);
-            alert("JSON da base completa copiado!");
+            alert("JSON copiado!");
         }
 
         function downloadJson() {
