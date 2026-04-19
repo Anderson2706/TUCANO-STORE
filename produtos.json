@@ -51,24 +51,7 @@
             }
         ]
     },
-    {
-        "id": 4,
-        "titulo": "PRODUTO ESGOTADO TESTE",
-        "categoria": "IPTV",
-        "descricao": "Este é um exemplo de como o sistema exibirá um item sem estoque.",
-        "imagem": "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=2070",
-        "cupom": {
-            "codigo": "SEMSTK",
-            "desconto": 0
-        },
-        "variacoes": [
-            {
-                "nome": "Plano Teste",
-                "preco": 0,
-                "estoque": 0
-            }
-        ]
-    },
+  
     {
         "id": 5,
         "titulo": "CS:GO PRIME / SKIN",
