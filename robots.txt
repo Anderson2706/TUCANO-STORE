@@ -1,0 +1,17 @@
+# ==========================================
+# ROBOTS.TXT - TUCANO STORE
+# ==========================================
+
+User-agent: *
+Allow: /
+
+# Bloquear acesso de robôs à página de administração por segurança e SEO
+Disallow: /admin.html
+
+# Bloquear pastas ou arquivos que não precisam aparecer nas buscas
+Disallow: /produtos.json
+
+# Caminho direto para o seu Sitemap para facilitar a indexação
+Sitemap: https://tucanostore.netlify.app/sitemap.xml
+
+# ==========================================
