@@ -134,7 +134,8 @@
             {
                 "nome": "🍿SKY BÁSICA | COMPARTILHADA",
                 "preco": 12.99,
-                "estoque": 12
+                "estoque": 12,
+                "link": "https://syncpay.link/1b1hXL"
             }
         ]
     },
@@ -148,17 +149,20 @@
             {
                 "nome": "⭐GLOBOPLAY BÁSICA ( CONTA )",
                 "preco": 13.99,
-                "estoque": 5
+                "estoque": 5,
+                "link": "https://syncpay.link/kQfBvY"
             },
             {
                 "nome": "⭐GLOBOPLAY PREMIUM | 2 MÊSES – CONTA COMPLETA | FULL ACESSO | ACESSO IMEDIATO",
                 "preco": 20.99,
-                "estoque": 5
+                "estoque": 5,
+                "link": "https://syncpay.link/PVs7fA"
             },
             {
                 "nome": "GLOBOPLAY PREMIUM | CONTA COMPLETA ",
                 "preco": 13.99,
-                "estoque": 5
+                "estoque": 5,
+                "link": "https://syncpay.link/AiwQsi"
             }
         ]
     },
@@ -170,14 +174,16 @@
         "imagem": "https://i.ibb.co/vCGTy43H/IMG-7435.png",
         "variacoes": [
             {
-                "nome": "INTERNET ILIMITADA - 40 DIAS",
+                "nome": "INTERNET ILIMITADA a- 40 DIAS",
                 "preco": 23.99,
-                "estoque": 56
+                "estoque": 56,
+                "link": "https://syncpay.link/QRSDDI"
             },
             {
                 "nome": "INTERNET ILIMITADA - 80 DIAS",
                 "preco": 38.99,
-                "estoque": 55
+                "estoque": 55,
+                "link": "https://syncpay.link/eQ0rmr"
             }
         ]
     },
@@ -191,22 +197,26 @@
             {
                 "nome": "🔒PRIME VIDEO COMPARTILHADA ",
                 "preco": 4.99,
-                "estoque": 11
+                "estoque": 11,
+                "link": "https://syncpay.link/7fMoPm"
             },
             {
                 "nome": "🔒PRIME VIDEO + GLOBOPLAY + PREMIERE + MAX   ",
                 "preco": 10.99,
-                "estoque": 0
+                "estoque": 0,
+                "link": ""
             },
             {
                 "nome": "🔒PRIME VIDEO + MAX  + PREMIERE + TELECINE +  CANAIS GLOBO",
                 "preco": 12.99,
-                "estoque": 12
+                "estoque": 12,
+                "link": "https://syncpay.link/g54Q7b"
             },
             {
                 "nome": "🔒PRIME VIDEO + PARAMOUNT + CRUNCHYROLL MEGA FAN + ADRENALINA  PURA -  AQUÁRIO - BOX BRASIL PLAY - CURTAON + APPLE TV ",
                 "preco": 29.99,
-                "estoque": 3
+                "estoque": 3,
+                "link": "https://syncpay.link/d1Bofw"
             }
         ]
     },
@@ -220,7 +230,8 @@
             {
                 "nome": "⭐CANVA PRO ( 1 MÊS )",
                 "preco": 2.5,
-                "estoque": 12
+                "estoque": 12,
+                "link": "https://syncpay.link/laX1Mm"
             }
         ]
     },
@@ -234,12 +245,14 @@
             {
                 "nome": "PARAMOUNT PREMIUM | PRIVADA",
                 "preco": 8.99,
-                "estoque": 34
+                "estoque": 34,
+                "link": "https://syncpay.link/F4xfKD"
             },
             {
                 "nome": "PARAMOUNT 2 MÊSES | PRIVADA",
                 "preco": 15.39,
-                "estoque": 13
+                "estoque": 13,
+                "link": "https://syncpay.link/IWXzJz"
             }
         ]
     },
