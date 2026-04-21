@@ -10,13 +10,13 @@
                 "nome": "🔒HBOMAX | PLATINUM PRIVADA",
                 "preco": 12.9,
                 "estoque": 4,
-                "link": "https://syncpay.link/bZpwce"
+                "link": "https://syncpay.link/iBErxc"
             },
             {
                 "nome": "🔒HBOMAX STANDARD | PRIVADA",
                 "preco": 7.5,
                 "estoque": 12,
-                "link": "https://syncpay.link/Ku4Fd5"
+                "link": "https://syncpay.link/TZkeWC"
             }
         ]
     },
@@ -30,12 +30,14 @@
             {
                 "nome": "🔒NETFLIX 4K | PRIVADA",
                 "preco": 19.9,
-                "estoque": 20
+                "estoque": 20,
+                "link": "https://syncpay.link/pkOBbj"
             },
             {
                 "nome": "🍿NETFLIX 4K | COMPARTILHADA",
                 "preco": 12.9,
-                "estoque": 8
+                "estoque": 8,
+                "link": "https://syncpay.link/ZbhHR0"
             }
         ]
     },
@@ -49,7 +51,8 @@
             {
                 "nome": "Acesso Mensal",
                 "preco": 26,
-                "estoque": 15
+                "estoque": 15,
+                "link": "https://syncpay.link/QPqNSR"
             }
         ]
     },
@@ -81,7 +84,8 @@
             {
                 "nome": "🥊COMBATE PLAY + TELECINE | COMPARTILHADA",
                 "preco": 6.99,
-                "estoque": 3
+                "estoque": 3,
+                "link": "https://syncpay.link/INZ33o"
             }
         ]
     },
@@ -95,12 +99,14 @@
             {
                 "nome": "🖥️ PACK COM +100 BANNERS STREAMING",
                 "preco": 7.99,
-                "estoque": 30
+                "estoque": 30,
+                "link": "https://syncpay.link/umNop1"
             },
             {
                 "nome": "MEGA PACK DESIGNER 15GB DE IMAGENS",
                 "preco": 5.69,
-                "estoque": 30
+                "estoque": 30,
+                "link": "https://syncpay.link/gaDxKr"
             }
         ]
     },
